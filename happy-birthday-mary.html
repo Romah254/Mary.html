@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mary!</title>
+    <style>
+        /* Modern CSS with variables */
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --font-main: 'Poppins', sans-serif;
+            --font-decorative: 'Dancing Script', cursive;
+        }
+
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .birthday-container {
+            max-width: 900px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            margin: 2rem;
+            padding-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .birthday-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header */
+        .birthday-header {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .birthday-header::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                          rgba(255,255,255,0.1) 0%, 
+                          rgba(255,255,255,0) 50%);
+            transform: rotate(15deg);
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: var(--font-decorative);
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        /* Content */
+        .birthday-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .birthday-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        /* Photo section */
+        .photo-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .photo-section {
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+        }
+
+        .birthday-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .birthday-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Message section */
+        .message-section {
+            flex: 2;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .message-section {
+                text-align: left;
+            }
+        }
+
+        .birthday-message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .birthday-wish {
+            font-family: var(--font-decorative);
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 1.5rem 0;
+            animation: pulse 2s infinite;
+        }
+
+        /* Decorations */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Button */
+        .birthday-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .birthday-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .birthday-footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Add confetti elements */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="birthday-container">
+        <div class="birthday-header">
+            <h1>Happy Birthday Mary!</h1>
+            <h2>Celebrating your special day with love</h2>
+        </div>
+
+        <div class="birthday-content">
+            <div class="photo-section">
+                <!-- Replace with Mary's actual photo -->
+                <img src="WhatsApp Image 2025-04-19 at 09.36.27_a63e03c3.jpg" alt="Mary" class="birthday-photo">
+            </div>
+
+            <div class="message-section">
+                <p class="birthday-message">
+                    Dear Mary, on your special day, I want you to know how much you mean to me. 
+                    You're not just my sister, but also my best friend and confidante. 
+                    Your kindness, strength, and beautiful spirit inspire me every day.
+                </p>
+                
+                <div class="birthday-wish">May all your dreams come true!</div>
+                
+                <p class="birthday-message">
+                    Wishing you a year filled with joy, laughter, love, and all the happiness you deserve. 
+                    Thank you for being you and for all the wonderful memories we've shared.
+                </p>
+                
+                <button class="birthday-button" id="confetti-btn">Celebrate!</button>
+            </div>
+        </div>
+
+        <div class="birthday-footer">
+            Made with love for Mary's birthday ❤️
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <script>
+        // Confetti effect
+        document.getElementById('confetti-btn').addEventListener('click', function() {
+            const container = document.getElementById('confetti-container');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = getRandomColor();
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                container.appendChild(confetti);
+            }
+        });
+
+        function getRandomColor() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#feca57'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Add some initial confetti
+        window.addEventListener('load', function() {
+            const container = document.getElementById('confetti-container');
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = getRandomColor();
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                container.appendChild(confetti);
+            }
+        });
+    </script>
+</body>
+</html>
